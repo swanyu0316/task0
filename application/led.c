@@ -11,26 +11,26 @@ void led_task(void const * argument)
     {
         for (int i = 0; i < 100; i++){
             __HAL_TIM_SET_COMPARE(&htim5, TIM_CHANNEL_1, i);
-            vTaskDelay(10);
+            osDelay(10);
         }
         for (int i = 99; i >=0; i--){
             __HAL_TIM_SET_COMPARE(&htim5, TIM_CHANNEL_1, i);
-            vTaskDelay(10);
+           osDelay(10);
         }
         for (int i = 0; i < 100; i++){
             __HAL_TIM_SET_COMPARE(&htim5, TIM_CHANNEL_2, i);
-            vTaskDelay(10);
+            osDelay(10);
         }
         for (int i = 99; i >=0; i--){
             __HAL_TIM_SET_COMPARE(&htim5, TIM_CHANNEL_2, i);
-            vTaskDelay(10);
+            osDelay(10);
         }for (int i = 0; i < 100; i++){
             __HAL_TIM_SET_COMPARE(&htim5, TIM_CHANNEL_3, i);
-            vTaskDelay(10);
+            osDelay(10);
         }
         for (int i = 99; i >=0; i--){
             __HAL_TIM_SET_COMPARE(&htim5, TIM_CHANNEL_3, i);
-            vTaskDelay(10);
+            osDelay(10);
         }
     }
 
