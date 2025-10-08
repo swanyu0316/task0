@@ -1,6 +1,7 @@
 #include "main.h"
 #include "FreeRTOS.h"
 #include "tim.h"
+#include "cmsis_os.h"
 
 void servo_task(void const * argument)
 {

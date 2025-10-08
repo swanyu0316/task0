@@ -93,6 +93,11 @@ int main(void)
   MX_TIM5_Init();
   MX_TIM8_Init();
   /* USER CODE BEGIN 2 */
+  
+  HAL_TIM_PWM_Start(&htim4, TIM_CHANNEL_3);
+  __HAL_TIM_SET_COMPARE(&htim4, TIM_CHANNEL_3, 500 / 5);
+  HAL_Delay(200);
+  __HAL_TIM_SET_COMPARE(&htim4, TIM_CHANNEL_3, 0);
 
   /* USER CODE END 2 */
 
@@ -162,6 +167,46 @@ void SystemClock_Config(void)
 }
 
 /* USER CODE BEGIN 4 */
+
+/* USER CODE BEGIN 4 */
+
+void set_note_frequency(uint32_t freq) {
+    uint32_t arr = (1000000 / freq) - 1;
+    __HAL_TIM_SET_AUTORELOAD(&htim4, arr);
+    __HAL_TIM_SET_COMPARE(&htim4, TIM_CHANNEL_3, 500 / 5);
+}
+
+void play_song1(void) {
+    set_note_frequency(554); osDelay(400);
+    set_note_frequency(622); osDelay(400); 
+    set_note_frequency(494); osDelay(400);
+    set_note_frequency(494); osDelay(800);
+    set_note_frequency(392); osDelay(400);
+    set_note_frequency(494); osDelay(400);
+    set_note_frequency(440); osDelay(400);
+    set_note_frequency(415); osDelay(400);
+    set_note_frequency(440); osDelay(400);
+    set_note_frequency(415); osDelay(400);
+    set_note_frequency(415); osDelay(800);
+}
+
+void play_song2(void) {
+    set_note_frequency(494); osDelay(400);
+    set_note_frequency(523); osDelay(400);
+    set_note_frequency(587); osDelay(400);
+    set_note_frequency(466); osDelay(400);
+    set_note_frequency(466); osDelay(800);
+    set_note_frequency(370); osDelay(400);
+    set_note_frequency(440); osDelay(400);
+    set_note_frequency(440); osDelay(400);
+    set_note_frequency(494); osDelay(400);
+    set_note_frequency(523); osDelay(400);
+    set_note_frequency(554); osDelay(400);
+    set_note_frequency(554); osDelay(800);
+}
+
+/* USER CODE END 4 */
+
 
 /* USER CODE END 4 */
 
